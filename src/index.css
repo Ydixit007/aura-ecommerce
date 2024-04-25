@@ -1,3 +1,41 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.titled{
+    position: relative;
+
+}
+
+.titled-2{
+    position: relative;
+}
+
+.titled::before{
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    left: -12px;
+    content: "";
+    width: 150%;
+    height: 100%;
+    background-color: white;
+    transform: rotate(2deg);
+}
+
+.titled-2::before{
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    left: -12px;
+    content: "";
+    width: 150%;
+    height: 100%;
+    background-color: #E5C743;
+    transform: rotate(-2deg);
+}

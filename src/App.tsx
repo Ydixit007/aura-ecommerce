@@ -13,6 +13,9 @@ const App = () => {
         <Routes>
           <Route path="/" element={<LandingPage />} />
           <Route path="/cart" element={<CartPage />} />
+
+          {/* admin routes */}
+          
         </Routes>
       </Suspense>
     </Router>
