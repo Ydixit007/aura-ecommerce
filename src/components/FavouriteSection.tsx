@@ -3,29 +3,23 @@ import { Link } from "react-router-dom";
 
 const category = [
   {
-    title: "Hoodies & Sweatshirt",
+    title: "Trending on instagram",
     subTitle: "Explore Now!",
     slug: "/",
-    image: "./assets/arr/arr1.webp",
+    image: "./assets/fav1.png",
   },
   {
-    title: "Tees & T-Shirt",
+    title: "All Under 500",
     subTitle: "Explore Now!",
     slug: "/",
-    image: "./assets/arr/arr3.jpg",
-  },
-  {
-    title: "Coats & Jackets",
-    subTitle: "Explore Now!",
-    slug: "/",
-    image: "./assets/arr/arr2.webp",
+    image: "./assets/fav2.png",
   },
 ];
 
-const NewArrivals = () => {
+const FavouriteSection = () => {
   return (
-    <div className="w-full min-h-[30rem] flex flex-col mb-10">
-      <h1 className="text-3xl font-black uppercase blob">New Arrivals</h1>
+    <div className="w-full min-h-[25rem] flex flex-col mb-10">
+      <h1 className="text-3xl font-black uppercase blob">Our Favourites</h1>
       <div className="sections flex justify-center gap-20 items-center mt-10 mb-10 flex-wrap">
         {category.map((card, index) => (
           <Card
@@ -50,12 +44,12 @@ interface CardProps {
 
 const Card = ({ title, image, subTitle, slug }: CardProps) => {
   return (
-    <div className="flex w-72 h-96 flex-col mx-4">
+    <div className="flex w-[28rem] h-64 flex-col mx-4">
       <img
         loading="lazy"
         src={image}
         alt={title}
-        className="object-cover flex-1 w-full rounded-lg"
+        className="object-cover h-full flex-1 w-full rounded-lg"
       />
       <div className="flex justify-between items-center">
         <div className="">
@@ -70,4 +64,4 @@ const Card = ({ title, image, subTitle, slug }: CardProps) => {
   );
 };
 
-export default NewArrivals;
+export default FavouriteSection;
