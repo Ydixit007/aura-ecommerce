@@ -13,3 +13,41 @@
   font-weight: 900;
   font-style: normal;
 }
+
+.container-custom {
+  width: calc(100vw - 10px); /* Adjust the 20px value as needed */
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+// Slider css
+@keyframes slide {
+  to {
+    transform: translateX(-100%);
+  }
+}
+
+.logos {
+  animation: 30s slide infinite linear;
+}
+
+.brands {
+  width: calc((148px + 2.5rem) * 12);
+}
