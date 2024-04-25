@@ -1,7 +1,9 @@
 import FavouriteSection from "@/components/FavouriteSection"
+import Footer from "@/components/Footer"
 import HeroSection from "@/components/HeroSection"
 import Navbar from "@/components/Navbar"
 import NewArrivals from "@/components/NewArrivals"
+import NewsletterSection from "@/components/NewsletterSection"
 import SaleSection from "@/components/SaleSection"
 import SliderSection from "@/components/SliderSection"
 
@@ -14,6 +16,8 @@ const LandingPage = () => {
         <NewArrivals />
         <SaleSection />
         <FavouriteSection />
+        <NewsletterSection />
+        <Footer />
     </div>
   )
 }

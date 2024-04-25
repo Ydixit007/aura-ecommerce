@@ -2,8 +2,8 @@ import { Link } from "react-router-dom";
 
 const Navbar = () => {
   return (
-    <nav className="bg-base-100 fixed top-0 w-full left-[50%] translate-x-[-50%] px-4 md:px-8 lg:px-12 z-50 flex">
-      <div className="navbar w-full max-w-7xl mx-auto">
+    <nav className="bg-base-100 fixed top-0 w-full left-[50%] translate-x-[-50%] z-50 flex">
+      <div className="navbar w-full max-w-7xl mx-auto px-4 md:px-8 lg:px-12">
         <div className="navbar-start">
           {/* Mobile dropdown */}
           <div className="dropdown">
