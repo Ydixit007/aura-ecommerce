@@ -1,7 +1,20 @@
+import { logoutUser } from "@/redux/reducer/userReducer";
+import { User } from "@/types/api-types";
+import toast from "react-hot-toast";
+import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 
-const Navbar = () => {
-  const user = { id: "123", image: "asdahsj" };
+interface PropsType {
+  user: User | null;
+}
+
+const Navbar = ({ user }: PropsType) => {
+  const dispatch = useDispatch();
+
+  const logoutHandler = () => {
+    dispatch(logoutUser());
+    toast.success("User logged out!");
+  };
   return (
     <nav className="bg-base-100 fixed top-0 w-full left-[50%] translate-x-[-50%] z-50 flex">
       <div className="navbar w-full max-w-7xl mx-auto px-4 md:px-8 lg:px-12">
@@ -63,7 +76,7 @@ const Navbar = () => {
           </ul>
         </div>
         <div className="navbar-end">
-          {user?.id ? (
+          {user?._id ? (
             <>
               <div className="dropdown dropdown-end">
                 <div
@@ -113,7 +126,7 @@ const Navbar = () => {
                   <div className="w-10 rounded-full">
                     <img
                       alt="Tailwind CSS Navbar component"
-                      src="https://images.pexels.com/photos/415829/pexels-photo-415829.jpeg"
+                      src={user.photo || ""}
                     />
                   </div>
                 </div>
@@ -131,14 +144,14 @@ const Navbar = () => {
                     <a>Settings</a>
                   </li>
                   <li>
-                    <a>Logout</a>
+                    <button onClick={logoutHandler}>logout</button>
                   </li>
                 </ul>
               </div>
             </>
           ) : (
-            <Link to={"/"} className="btn btn-neutral font-normal">
-              Sign up
+            <Link to={"/login"} className="btn btn-neutral font-normal">
+              Login
             </Link>
           )}
         </div>
