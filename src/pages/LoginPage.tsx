@@ -27,8 +27,8 @@ const LoginPage = () => {
   };
 
   return (
-    <div className="max-w-7xl container-custom mx-auto px-4 md:px-8 lg:px-12 h-screen w-full flex items-center antialiased">
-      <div className="image-container flex-1 h-[80%] relative overflow-hidden rounded-[5rem] shadow-sm shadow-slate-700/1">
+    <div className="max-w-7xl container-custom mx-auto px-4 md:px-8 lg:px-12 h-screen w-full flex flex-col md:flex-row items-center antialiased">
+      <div className="image-container w-full flex-1 md:h-[80%] relative overflow-hidden rounded-[5rem] shadow-sm shadow-slate-700/1">
         <img
           className="absolute w-full h-full object-cover"
           src="./assets/sale.jpg"
@@ -36,9 +36,9 @@ const LoginPage = () => {
           loading="eager"
         />
       </div>
-      <div className="login flex-1 flex flex-col w-full h-[80%] items-center justify-center">
+      <div className="login flex-1 flex flex-col w-full md:h-[80%] items-center justify-center">
         <div className="headings">
-          <h1 className="uppercase font-semibold text-4xl z-10 max-sm:leading-normal leading-snug max-sm:text-5xl titled-2 py-2 mb-2 text-center">
+          <h1 className="uppercase font-semibold text-4xl z-10 max-sm:leading-normal leading-snug max-sm:text-3xl titled-2 py-2 mb-2 text-center">
             Welcome Back!
           </h1>
           <p className="text-center text-gray-500">

@@ -58,7 +58,7 @@ const Navbar = ({ user }: PropsType) => {
           </Link>
         </div>
         <div className="navbar-center hidden lg:flex uppercase">
-          <ul className="menu menu-horizontal px-1">
+          <ul className="menu menu-horizontal px-1 gap-1">
             <li>
               <Link to={"/"}>Women</Link>
             </li>
