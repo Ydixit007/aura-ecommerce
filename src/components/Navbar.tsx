@@ -126,7 +126,7 @@ const Navbar = ({ user }: PropsType) => {
                   <div className="w-10 rounded-full">
                     <img
                       alt="Tailwind CSS Navbar component"
-                      src={user.photo || ""}
+                      src={user.photo}
                     />
                   </div>
                 </div>
