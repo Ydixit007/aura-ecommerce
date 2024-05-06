@@ -1,5 +1,7 @@
+import { auth } from "@/firebase";
 import { logoutUser } from "@/redux/reducer/userReducer";
 import { User } from "@/types/api-types";
+import { signOut } from "firebase/auth";
 import toast from "react-hot-toast";
 import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
@@ -13,6 +15,7 @@ const Navbar = ({ user }: PropsType) => {
 
   const logoutHandler = () => {
     dispatch(logoutUser());
+    signOut(auth);
     toast.success("User logged out!");
   };
   return (
@@ -135,10 +138,10 @@ const Navbar = ({ user }: PropsType) => {
                   className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
                 >
                   <li>
-                    <a className="justify-between">
+                    <Link to={"/profile"} className="justify-between">
                       Profile
-                      <span className="badge">New</span>
-                    </a>
+                      {/* <span className="badge">New</span> */}
+                    </Link>
                   </li>
                   <li>
                     <a>Settings</a>

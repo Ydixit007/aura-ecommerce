@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { auth } from "@/firebase";
 import { useLoginMutation } from "@/redux/api/user";
 import { MessageResponse } from "@/types/api-types";
@@ -11,6 +11,7 @@ const SignupPage = () => {
   const [login] = useLoginMutation();
   const [gender, setGender] = useState("");
   const [dob, setDob] = useState("");
+  const navigate = useNavigate();
 
   const loginHandler = async () => {
     try {
@@ -32,6 +33,7 @@ const SignupPage = () => {
 
       if ("data" in res) {
         toast.success(res.data.message);
+        navigate("/");
       } else {
         const error = res.error as FetchBaseQueryError;
         const message = (error.data as MessageResponse).message;

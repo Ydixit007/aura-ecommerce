@@ -11,6 +11,7 @@ import { getUser } from "./redux/api/user";
 import Navbar from "./components/Navbar";
 import { useSelector } from "react-redux";
 import { userReducerInitialState } from "./types/reducer-types";
+import ProfilePage from "./pages/ProfilePage";
 
 const LandingPage = lazy(() => import("./pages/LandingPage"));
 const CartPage = lazy(() => import("./pages/CartPage"));
@@ -19,7 +20,7 @@ const SignupPage = lazy(() => import("./pages/SignupPage"));
 
 const App = () => {
   const dispatch = useDispatch();
-  const { user, loading } = useSelector(
+  const { user } = useSelector(
     (state: { userReducer: userReducerInitialState }) => state.userReducer
   );
 
@@ -39,10 +40,19 @@ const App = () => {
     <Router>
       <Suspense fallback={<Loading />}>
         <Routes>
-          <Route path="/" element={<><Navbar user={user}></Navbar><LandingPage /></>} />
+          <Route
+            path="/"
+            element={
+              <>
+                <Navbar user={user}></Navbar>
+                <LandingPage />
+              </>
+            }
+          />
           <Route path="/cart" element={<CartPage />} />
           <Route path="/login" element={<LoginPage />} />
           <Route path="/signup" element={<SignupPage />} />
+          <Route path="/profile" element={<ProfilePage user={user} />} />
           {/* admin routes */}
         </Routes>
       </Suspense>
