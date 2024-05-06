@@ -1,9 +1,7 @@
 import { auth } from "@/firebase";
-import { logoutUser } from "@/redux/reducer/userReducer";
 import { User } from "@/types/api-types";
 import { signOut } from "firebase/auth";
 import toast from "react-hot-toast";
-import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 
 interface PropsType {
@@ -11,10 +9,7 @@ interface PropsType {
 }
 
 const Navbar = ({ user }: PropsType) => {
-  const dispatch = useDispatch();
-
   const logoutHandler = () => {
-    dispatch(logoutUser());
     signOut(auth);
     toast.success("User logged out!");
   };

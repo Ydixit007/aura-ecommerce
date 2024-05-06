@@ -39,19 +39,18 @@ const App = () => {
   return (
     <Router>
       <Suspense fallback={<Loading />}>
+        <Navbar user={user}></Navbar>
         <Routes>
-          <Route
-            path="/"
-            element={
-              <>
-                <Navbar user={user}></Navbar>
-                <LandingPage />
-              </>
-            }
-          />
+          <Route path="/" element={<LandingPage />} />
           <Route path="/cart" element={<CartPage />} />
-          <Route path="/login" element={<LoginPage />} />
-          <Route path="/signup" element={<SignupPage />} />
+          <Route
+            path="/login"
+            element={user ? <LandingPage /> : <LoginPage />}
+          />
+          <Route
+            path="/signup"
+            element={user ? <LandingPage /> : <SignupPage />}
+          />
           <Route path="/profile" element={<ProfilePage user={user} />} />
           {/* admin routes */}
         </Routes>

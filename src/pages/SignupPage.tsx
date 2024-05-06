@@ -1,17 +1,16 @@
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { auth } from "@/firebase";
-import { useLoginMutation } from "@/redux/api/user";
 import { MessageResponse } from "@/types/api-types";
 import { FetchBaseQueryError } from "@reduxjs/toolkit/query";
 import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
 import { useState } from "react";
 import toast from "react-hot-toast";
+import { useCreateMutation } from "@/redux/api/user";
 
 const SignupPage = () => {
-  const [login] = useLoginMutation();
+  const [login] = useCreateMutation();
   const [gender, setGender] = useState("");
   const [dob, setDob] = useState("");
-  const navigate = useNavigate();
 
   const loginHandler = async () => {
     try {
@@ -33,7 +32,6 @@ const SignupPage = () => {
 
       if ("data" in res) {
         toast.success(res.data.message);
-        navigate("/");
       } else {
         const error = res.error as FetchBaseQueryError;
         const message = (error.data as MessageResponse).message;

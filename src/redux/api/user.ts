@@ -8,7 +8,7 @@ export const userAPI = createApi({
     baseUrl: `${import.meta.env.VITE_SERVER}/api/v1/user/`,
   }),
   endpoints: (builder) => ({
-    login: builder.mutation<MessageResponse, User>({
+    create: builder.mutation<MessageResponse, User>({
       query: (user) => ({
         url: "create",
         method: "POST",
@@ -29,4 +29,4 @@ export const getUser = async (id: string) => {
   }
 };
 
-export const { useLoginMutation } = userAPI;
+export const { useCreateMutation} = userAPI;

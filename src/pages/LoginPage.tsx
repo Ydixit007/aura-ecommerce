@@ -2,10 +2,9 @@ import { auth } from "@/firebase";
 import { getUser } from "@/redux/api/user";
 import { GoogleAuthProvider, signInWithPopup, signOut } from "firebase/auth";
 import toast from "react-hot-toast";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const LoginPage = () => {
-  const navigate = useNavigate();
   const loginHandler = async () => {
     try {
       const provider = new GoogleAuthProvider();
@@ -17,16 +16,13 @@ const LoginPage = () => {
       const exisitingUser = await getUser(user.uid);
       if (exisitingUser.success) {
         toast.success(`Welcome back! ${exisitingUser.user.name}`);
-        navigate("/");
       } else {
         signOut(auth);
         toast.error("User doesn't exists, Please signup first.");
-        navigate("/signup");
       }
     } catch (err) {
       signOut(auth);
       toast.error("User doesn't exists, Please signup first.");
-      navigate("/signup");
     }
   };
 
